@@ -1,0 +1,21 @@
+{
+  "name": "simpocomp2023-cadastro-de-usuarios",
+  "version": "1.0.0",
+  "description": "simple user registration application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byPedroCruzDev/SIMPOCOMP2023-cadastro-de-usuarios.git"
+  },
+  "author": "byPedroCruzDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byPedroCruzDev/SIMPOCOMP2023-cadastro-de-usuarios/issues"
+  },
+  "homepage": "https://github.com/byPedroCruzDev/SIMPOCOMP2023-cadastro-de-usuarios#readme"
+}
