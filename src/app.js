@@ -1,15 +1,15 @@
 //Importando a o framework express para ser utilizado nesse arquivo
 import express from "express";
+import createUserController from "./controllers/createController.js";
 
 //Cria um instancia que facilita utilizacao futura
 const app = express();
+//isso padroniza a entrada de dados em json
+app.use(express.json());
 //define a porta em que o nosso servidor ira rodar.
 const port = 3000;
 
-//define uma rota, onde podemos fazer uma requisicao do tipo get
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+app.post("/users", createUserController);
 
 //a funcao listen "ouve" tudo que acontece em um determinado local/porta
 //ele recebe dois parametros, onde ele ira ouvir, e uma funcao que indica o que o servidore
