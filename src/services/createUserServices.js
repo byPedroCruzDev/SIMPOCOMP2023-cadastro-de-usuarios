@@ -20,8 +20,7 @@ export const createUserServices = async (userData) => {
     ...userData,
     uuid: newUser.uuid,
     createdOn: new Date(),
-    updatedOn: new Date(),
-    uuid: newUser.uuid
+    updatedOn: new Date()
   }
 
   users.push(newUser)
