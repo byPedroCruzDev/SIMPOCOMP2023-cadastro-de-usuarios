@@ -1,17 +1,17 @@
-import users from "../database.js";
+import users from '../database.js'
 
 export const createUserServices = async (userData) => {
-  console.log(userData);
+  console.log(userData)
   const newUser = {
-    ...userData,
-  };
+    ...userData
+  }
 
   const respUser = {
     ...userData,
-    uuid: newUser.uuid,
-  };
+    uuid: newUser.uuid
+  }
 
-  users.push(newUser);
+  users.push(newUser)
 
-  return [201, respUser];
-};
+  return [201, respUser]
+}
