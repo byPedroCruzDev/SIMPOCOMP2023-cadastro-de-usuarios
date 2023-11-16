@@ -4,7 +4,7 @@ import users from "../database.js";
 export const updateUserServices = async (userId, data) => {
   const { hash } = bcrypt;
 
-  const id = users.findIndex((user) => user.id == userId);
+  const id = users.findIndex((user) => user.uuid == userId);
   console.log(`id obtido na rota: ${userId}, usuario ${id}`);
 
   if (data.password) {
