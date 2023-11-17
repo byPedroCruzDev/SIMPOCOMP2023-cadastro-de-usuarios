@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 //define uma rota, onde podemos fazer uma requisicao do tipo get
-app.get("/", (req, res) => {
+app.get("/", (request, response) => {
   res.send("Hello world");
 });
 
