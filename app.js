@@ -8,7 +8,7 @@ const port = 3000;
 
 //define uma rota, onde podemos fazer uma requisicao do tipo get
 app.get("/", (request, response) => {
-  res.send("Hello world");
+  response.send("Hello world");
 });
 
 //a funcao listen "ouve" tudo que acontece em um determinado local/porta
