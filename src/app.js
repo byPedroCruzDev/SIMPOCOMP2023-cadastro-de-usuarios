@@ -1,5 +1,5 @@
 // Importando a o framework express para ser utilizado nesse arquivo
-import express from 'express'
+import express, { json } from 'express'
 import createUserController from './controllers/createController.js'
 import { listUserController } from './controllers/listUsersController.js'
 import { updateUserController } from './controllers/updateUserController.js'
@@ -9,7 +9,7 @@ import { deleteUserController } from './controllers/deleteUserController.js'
 // Cria um instancia que facilita utilizacao futura
 const app = express()
 // isso padroniza a entrada de dados em json
-app.use(express.json())
+app.use(json())
 // define a porta em que o nosso servidor ira rodar.
 const PORT = 3000
 

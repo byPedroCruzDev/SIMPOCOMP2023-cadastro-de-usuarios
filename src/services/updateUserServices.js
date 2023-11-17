@@ -1,27 +1,22 @@
-import bcrypt from 'bcrypt'
 import users from '../database.js'
+import { UserNotFoundException } from '../controllers/errors/user-not-found-exception.js'
 
 export const updateUserServices = async (userId, data) => {
-  const { hash } = bcrypt
-
-  const id = users.findIndex((user) => user.uuid === userId)
-  console.log(`id obtido na rota: ${userId}, usuario ${id}`)
-
-  if (data.password) {
-    const newPassword = await hash(data.password, 12)
-    users[id].password = newPassword
+  const indexUser = users.findIndex(({ id }) => id === userId)
+  if (indexUser < 0) {
+    throw new UserNotFoundException()
   }
-  // users[id] é um objeto contido em um array
 
-  Object.keys(users[id]).forEach((key) => {
-    Object.keys(data).forEach((dataKey) => {
-      if (key === dataKey && key !== 'createdOn' && key !== 'password') {
-        users[id][key] = data[dataKey]
-      }
-    })
-  })
+  // users[indexUser] é um objeto contido em um array
+  if (data.name) {
+    users[indexUser].name = data.name
+  }
 
-  users[id].updatedOn = new Date()
+  if (data.email) {
+    users[indexUser].email = data.email
+  }
 
-  return users[id]
+  users[indexUser].updatedAt = new Date()
+
+  return users[indexUser]
 }

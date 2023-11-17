@@ -1,22 +1,29 @@
 import users from '../database.js'
-import { v4 as uuidv4 } from 'uuid'
-import bcrypt from 'bcrypt'
+import { randomUUID } from 'crypto'
+import { hash } from 'bcrypt'
+import { UserAlreadyExistsException } from '../controllers/errors/user-already-exists-exception.js'
 
 export const createUserServices = async (userData) => {
-  console.log(userData)
-  const { hash } = bcrypt
-  // const hash = bcrypt.hash;
+  const userAlreadyExists = users.find(({ email }) => email === userData.email)
 
-  userData.password = await hash(userData.password, 12)
-
-  const newUser = {
-    ...userData,
-    uuid: uuidv4(),
-    createdOn: new Date(),
-    updatedOn: new Date()
+  if (userAlreadyExists) {
+    throw new UserAlreadyExistsException()
   }
 
-  users.push(newUser)
+  const passwordHash = await hash(userData.password, 12)
 
-  return newUser
+  userData.password = passwordHash
+
+  const user = {
+    id: randomUUID(),
+    name: userData.name,
+    email: userData.email,
+    password: userData.password,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+
+  users.push(user)
+  delete user.password
+  return user
 }
