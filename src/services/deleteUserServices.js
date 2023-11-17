@@ -1,9 +1,9 @@
-import users from "../database.js";
+import users from '../database.js'
 
 export const deleteUserServices = (userId) => {
-  const userIndex = users.findIndex((user) => user.uuid == userId);
+  const userIndex = users.findIndex((user) => user.uuid === userId)
 
-  delete users[userIndex];
+  delete users[userIndex]
 
-  return [204];
-};
+  return [204]
+}
