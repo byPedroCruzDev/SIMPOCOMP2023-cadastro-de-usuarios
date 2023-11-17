@@ -1,4 +1,4 @@
-import { updateUserServices } from '../services/updateUserServices.js';
+import { updateUserServices } from '../services/updateUserServices.js'
 
 export const updateUserController = async (request, response) => {
   const [status, data] = await updateUserServices(
@@ -7,6 +7,6 @@ export const updateUserController = async (request, response) => {
   )
 
   // o password é deletado no retorno por boas praticas
-  delete data.password;
-  return response.status(status).json(data);
+  delete data.password
+  return response.status(status).json(data)
 }
