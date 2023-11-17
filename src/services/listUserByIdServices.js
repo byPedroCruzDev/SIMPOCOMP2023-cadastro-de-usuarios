@@ -7,5 +7,5 @@ export const listUserByIdServices = (idUser) => {
 
   delete userById.password
 
-  return [200, userById]
+  return userById
 }

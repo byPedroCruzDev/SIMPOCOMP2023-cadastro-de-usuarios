@@ -10,20 +10,13 @@ export const createUserServices = async (userData) => {
   userData.password = await hash(userData.password, 12)
 
   const newUser = {
+    ...userData,
     uuid: uuidv4(),
-    ...userData,
-    createdOn: new Date(),
-    updatedOn: new Date()
-  }
-
-  const respUser = {
-    ...userData,
-    uuid: newUser.uuid,
     createdOn: new Date(),
     updatedOn: new Date()
   }
 
   users.push(newUser)
 
-  return [201, respUser]
+  return newUser
 }

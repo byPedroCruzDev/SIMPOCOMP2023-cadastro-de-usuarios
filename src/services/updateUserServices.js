@@ -23,5 +23,5 @@ export const updateUserServices = async (userId, data) => {
 
   users[id].updatedOn = new Date()
 
-  return [200, users[id]]
+  return users[id]
 }

@@ -1,8 +1,9 @@
 import { createUserServices } from '../services/createUserServices.js'
+import { HttpStatus } from './helpers/httpStatus.js'
 
 const createUserController = async (request, response) => {
-  const [status, data] = await createUserServices(request.body)
-  return response.status(status).json(data)
+  const data = await createUserServices(request.body)
+  return response.status(HttpStatus.CREATED).json(data)
 }
 
 export default createUserController

@@ -1,7 +1,8 @@
 import { deleteUserServices } from '../services/deleteUserServices.js'
+import { HttpStatus } from './helpers/httpStatus.js'
 
 export const deleteUserController = (request, response) => {
-  const [status] = deleteUserServices(request.params.id)
+  deleteUserServices(request.params.id)
 
-  return response.status(status).json()
+  return response.status(HttpStatus.NO_CONTENT).json()
 }
