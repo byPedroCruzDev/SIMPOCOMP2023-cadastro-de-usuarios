@@ -8,12 +8,12 @@ export const createUserServices = async (userData) => {
   // const hash = bcrypt.hash;
 
   userData.password = await hash(userData.password, 12)
-
   const newUser = {
     uuid: uuidv4(),
     ...userData,
     createdOn: new Date(),
     updatedOn: new Date()
+
   }
 
   const respUser = {

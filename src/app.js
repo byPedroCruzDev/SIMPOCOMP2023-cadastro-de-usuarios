@@ -1,6 +1,6 @@
 // Importando a o framework express para ser utilizado nesse arquivo
 import express from 'express'
-import createUserController from './controllers/createController.js'
+import { createUserController } from './controllers/createController.js'
 import { listUserController } from './controllers/listUsersController.js'
 
 // Cria um instancia que facilita utilizacao futura
