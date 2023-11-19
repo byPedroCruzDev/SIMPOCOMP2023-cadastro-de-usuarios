@@ -1,7 +1,7 @@
-import { deleteUserServices } from '../services/deleteUserServices.js';
+import { deleteUserServices } from '../services/deleteUserServices.js'
 
 export const deleteUserController = (request, response) => {
-  const [status] = deleteUserServices(request.params.id);
+  const [status] = deleteUserServices(request.params.id)
 
-  return response.status(status).json();
-};
+  return response.status(status).json()
+}
