@@ -1,5 +1,5 @@
-import users from "../database.js";
+import users from '../database.js'
 
 export const listUserServices = () => {
-  return [200, users];
+  return [200, users]
 };
