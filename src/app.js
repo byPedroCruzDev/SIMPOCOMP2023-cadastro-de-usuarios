@@ -2,6 +2,7 @@
 
 import express from 'express'
 import {createUserController} from './controllers/createController.js'
+import { listUserController } from './controllers/listUsersController.js'
 
 //Cria um instancia que facilita utilizacao futura
 const app = express()
@@ -12,7 +13,7 @@ const port = 3000
 
 
 app.post('/users', createUserController)
-app.get('/users', );
+app.get('/users', listUserController);
 
 //a funcao listen "ouve" tudo que acontece em um determinado local/porta
 //ele recebe dois parametros, onde ele ira ouvir, e uma funcao que indica o que o servidore
