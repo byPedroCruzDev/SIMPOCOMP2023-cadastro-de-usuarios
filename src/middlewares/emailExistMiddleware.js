@@ -5,7 +5,7 @@ export const emailExistMiddleware = (request, response, next) => {
 
   if (indexUser !== -1) {
     return response.status(409).json({
-      message: 'User not found'
+      message: 'Email already exists'
     })
   }
 

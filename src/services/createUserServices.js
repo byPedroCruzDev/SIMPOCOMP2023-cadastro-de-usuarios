@@ -27,7 +27,7 @@ export const createUserServices = async (userData) => {
 
     return [201, respUser]
   } catch (error) {
-    console.error('Erro ao criar usuário:', error)
-    return [500, { error: 'Erro interno do servidor.' }]
+    console.error('Server error:', error)
+    return [500, { error: 'server error.' }]
   }
 }
