@@ -6,6 +6,8 @@ import { updateUserController } from './controllers/updateUserController.js'
 import { listUserByIdController } from './controllers/listUserByIdController.js'
 import { deleteUserController } from './controllers/deleteUserController.js'
 import { emailExistMiddleware } from './middlewares/emailExistMiddleware.js'
+import userLoginController from './controllers/loginUSerController.js'
+import { isOwner } from './middlewares/isOwnerMiddleware.js'
 
 // Cria um instancia que facilita utilizacao futura
 const app = express()
@@ -18,11 +20,13 @@ app.post('/users', emailExistMiddleware, createUserController)
 
 app.get('/users', listUserController)
 
-app.patch('/users/:id', updateUserController)
+app.patch('/users/:id', isOwner, updateUserController)
 
-app.delete('/users/:id', deleteUserController)
+app.delete('/users/:id', isOwner, deleteUserController)
 
 app.get('/users/:id', listUserByIdController)
+
+app.post('/login', userLoginController)
 
 // a funcao listen "ouve" tudo que acontece em um determinado local/porta
 // ele recebe dois parametros, onde ele ira ouvir, e uma funcao que indica o que o servidore
