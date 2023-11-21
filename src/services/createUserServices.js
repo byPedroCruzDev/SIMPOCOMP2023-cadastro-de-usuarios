@@ -8,9 +8,7 @@ export const createUserServices = async (userData) => {
 
   const respUser = {
     ...userData,
-    uuid: newUser.uuid,
   }
-
   users.push(newUser);
 
   return [201, respUser];
