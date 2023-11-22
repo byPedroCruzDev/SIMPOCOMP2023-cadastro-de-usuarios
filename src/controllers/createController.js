@@ -1,11 +1,14 @@
 import { createUserServices } from '../services/createUserServices.js'
 
 const createUserController = async (request, response) => {
-  const [status, data] = await createUserServices(request.body)
+  try {
+    const data = await createUserServices(request.body)
 
-  delete data.password
-
-  return response.status(status).json(data)
+    return response.status(200).json(data)
+  } catch (error) {
+    console.error('Server error:', error)
+    return [500, { error: 'server error.' }]
+  }
 }
 
 export default createUserController

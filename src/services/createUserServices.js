@@ -6,28 +6,18 @@ export const createUserServices = async (userData) => {
   console.log(userData)
   const { hash } = bcrypt
   // const hash = bcrypt.hash;
-  try {
-    userData.password = await hash(userData.password, 12)
 
-    const newUser = {
-      uuid: uuidv4(),
-      ...userData,
-      createdOn: new Date(),
-      updatedOn: new Date()
-    }
+  userData.password = await hash(userData.password, 12)
 
-    const respUser = {
-      ...userData,
-      uuid: newUser.uuid,
-      createdOn: new Date(),
-      updatedOn: new Date()
-    }
-
-    users.push(newUser)
-
-    return [201, respUser]
-  } catch (error) {
-    console.error('Server error:', error)
-    return [500, { error: 'server error.' }]
+  const newUser = {
+    uuid: uuidv4(),
+    ...userData,
+    createdOn: new Date(),
+    updatedOn: new Date()
   }
+
+  users.push(newUser)
+  delete newUser.password
+
+  return newUser
 }
