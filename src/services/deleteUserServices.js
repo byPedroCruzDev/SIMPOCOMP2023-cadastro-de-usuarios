@@ -2,7 +2,7 @@ import users from '../database.js'
 
 export const deleteUserServices = (userId, response) => {
   const userIndex = users.findIndex((user) => user.uuid === userId)
-  if (!userId) {
+  if (!userIndex) {
     return response.json('User not found')
   }
 
