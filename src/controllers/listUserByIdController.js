@@ -1,9 +1,11 @@
 import { listUserByIdServices } from '../services/listUserByIdServices.js'
 
 export const listUserByIdController = (request, response) => {
-  const [status, data] = listUserByIdServices(request.params.id)
+  try {
+    const data = listUserByIdServices(request.params.id, response)
 
-  delete data.password
-
-  return response.status(status).json(data)
+    return response.status(200).json(data)
+  } catch (error) {
+    return [404, { error: 'User not found' }]
+  }
 }
