@@ -1,7 +1,11 @@
 import { deleteUserServices } from '../services/deleteUserServices.js'
 
 export const deleteUserController = (request, response) => {
-  const [status] = deleteUserServices(request.params.id)
+  try {
+    const [status] = deleteUserServices(request.params.id, response)
 
-  return response.status(status).json()
+    return response.status(status).json()
+  } catch (error) {
+    return [404, { error: 'User not found' }]
+  }
 }
