@@ -1,13 +1,12 @@
 // Importando a o framework express para ser utilizado nesse arquivo
 import express from 'express'
-import createUserController from './controllers/createController.js'
+import { createUserController } from './controllers/createController.js'
 import { listUserController } from './controllers/listUsersController.js'
 import { updateUserController } from './controllers/updateUserController.js'
 import { listUserByIdController } from './controllers/listUserByIdController.js'
 import { deleteUserController } from './controllers/deleteUserController.js'
-import { emailExistMiddleware } from './middlewares/emailExistMiddleware.js'
-import userLoginController from './controllers/loginUSerController.js'
 import { isOwner } from './middlewares/isOwnerMiddleware.js'
+import { userLoginController } from './controllers/loginUserController.js'
 
 // Cria um instancia que facilita utilizacao futura
 const app = express()
@@ -16,7 +15,7 @@ app.use(express.json())
 // define a porta em que o nosso servidor ira rodar.
 const PORT = 3000
 
-app.post('/users', emailExistMiddleware, createUserController)
+app.post('/users', createUserController)
 
 app.get('/users', listUserController)
 

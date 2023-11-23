@@ -9,23 +9,19 @@ export const userLoginServices = async (email, password) => {
   const user = users.find((user) => user.email === email)
 
   if (!user) {
-    return [401, { message: 'email or password not found' }]
+    throw new Error('Email not found')
   }
 
   const passwordMatch = await compare(password, user.password)
-
   if (!passwordMatch) {
-    return [401, { message: 'email or passaword not found' }]
+    throw new Error('Password not found')
   }
-  try {
-    const token = jwt.sign({}, process.env.SECRET_KEY, {
-      expiresIn: '24h',
-      subject: user.uuid.toString()
-    })
 
-    return [200, { token }]
-  } catch (error) {
-    console.error('Error creating token:', error)
-    return [500, { message: 'Internal error creating token.' }]
-  }
+  const token = jwt.sign({}, process.env.SECRET_KEY, {
+    expiresIn: '24h',
+    subject: user.uuid.toString()
+
+  })
+
+  return { token }
 }
