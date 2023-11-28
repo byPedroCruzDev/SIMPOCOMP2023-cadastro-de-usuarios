@@ -23,7 +23,7 @@ O SIMPOCOMP2023-introducao-back-end-node é uma aplicação que sera utilizada n
 ## ✔️ Pré Requisitos
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Node.js](https://nodejs.org/en/)
-- [ExpressJs]([https://nodejs.org/en/](https://expressjs.com/pt-br/starter/installing.html))
+- [ExpressJs](https://expressjs.com/pt-br/starter/installing.html)
 
 ## 🚀 Como executar
 
