@@ -1,4 +1,4 @@
-<h1 align="center">
+l<h1 align="center">
     SIMPOCOMP2023-introducao-back-end-node
 </h1>
 
@@ -8,7 +8,7 @@
   </a>
 </p>
 
-O SIMPOCOMP2023-introducao-back-end-node é uma aplicação que sera utilizada no minicurso de introdução ao javascipt 
+O SIMPOCOMP2023-introducao-back-end-node é uma aplicação que sera utilizada no minicurso de introdução ao javascipt + node
 ## 📄 Tabela do banco de dados
 
 <p align="center">
